@@ -3,7 +3,7 @@ from pathlib import Path
 import subprocess
 import os
 
-# 📁 Carpeta con los bloques
+# 📁 Folder where the chunks are
 TEMP_FOLDER = "temp"
 OUTPUT_MP3 = "audiobook.mp3"
 LIST_FILE = "file_list.txt"

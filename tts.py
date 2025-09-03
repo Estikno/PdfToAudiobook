@@ -119,7 +119,6 @@ def generate_audiobook_coqui(input_json):
         block_audio.export(block_wav_path, format="wav")
         print(f" Saved combined block audio: {block_wav_path}")
 
-    # Export combined audiobook to MP3
     print(f"✅ Audiobook segments saved in /temp folder")
 
 if __name__ == "__main__":

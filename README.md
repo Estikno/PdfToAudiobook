@@ -62,6 +62,7 @@ You’ll need these libraries and tools installed:
 - [**Coqui-TTS (fork)**](https://coqui-tts.readthedocs.io/)
 - [**PyMuPDF**](https://pymupdf.readthedocs.io/) (`pip install PyMuPDF`)
 - [**jenkspy**](https://pypi.org/project/jenkspy/) (`pip install jenkspy`)
+- [**Pydub**](https://pypi.org/project/pydub/)
 
 ---
 

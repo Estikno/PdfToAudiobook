@@ -1,6 +1,6 @@
 # Simple PDF to Audiobook
 
-This project converts PDF books into **AI-narrated audiobooks** using [Coqui-TTS](https://github.com/coqui-ai/TTS) (fork), PyMuPDF and jenkspy. Everything is done
+This project converts PDF books into **AI-narrated audiobooks** using [Coqui-TTS](https://github.com/idiap/coqui-ai-TTS) (fork), PyMuPDF and jenkspy. Everything is done
 locally so there is no need for api keys, credits, etc.
 
 The workflow is very simple but it will improve in the future — if you’re not afraid of tweaking a bit of code, you’ll have no problem.

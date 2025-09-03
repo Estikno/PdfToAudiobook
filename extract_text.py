@@ -11,6 +11,21 @@ def extract_from_pdf(pdf_path):
     results = []
 
     for page_num, page in enumerate(doc, start=1):
+        # Skip some pages (If needed)
+        # if page_num <= 3:
+        #     continue
+
+        # Skip empty pages
+        # if not page.get_text("text"):
+        #     continue
+
+        # Remove tables
+        for tab in page.find_tables():
+            # process the content of table 'tab'
+            page.add_redact_annot(tab.bbox)  # wrap table in a redaction annotation
+        
+        page.apply_redactions()  # erase all table text
+
         # Obtains the text of the page
         blocks = page.get_text("dict")["blocks"]
 
@@ -20,9 +35,29 @@ def extract_from_pdf(pdf_path):
             font_sizes = []
             text_content = []
 
+            # Set to true if you want to ignore everything that comes after the unwanted text
+            ignore = False
+
             for l in b["lines"]:
+                if ignore:
+                    continue
+
                 for s in l["spans"]:
+                    if ignore:
+                        continue
+
                     if s["size"] >= MIN_FONT_SIZE and s["text"].strip():
+                        print(s["text"].strip())
+                        # Ignore the whole line
+                        # if "Test ignore" in s["text"].strip():
+                        #     ignore = True
+                        #     text_content = []
+                        #     continue
+                        
+                        # Only ignore the character "•"
+                        # if "•" in s["text"].strip():
+                        #     continue
+
                         # Ignore alone numbers in the text, such as "1", "2", etc.
                         try:
                             num = int(s["text"])
